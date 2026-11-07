@@ -147,3 +147,15 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Ignora dependências do Node em qualquer lugar do projeto
+node_modules/
+backend/node_modules/
+
+# Ignora os arquivos de configuração real com senhas
+.env
+backend/.env
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db
