@@ -8,8 +8,12 @@ require('./config/db');
 const app = express();
 
 // Middlewares
+app.use(express.json()); 
 app.use(cors());
-app.use(express.json());
+
+// Importando as rotas
+const agendamentoRoutes = require('./routes/agendamentoRoutes');
+app.use('/api/agendamentos', agendamentoRoutes);
 
 // Rota de teste simples
 app.get('/', (req, res) => {
@@ -22,3 +26,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(` Servidor rodando na porta ${PORT}`);
 });
+
+
