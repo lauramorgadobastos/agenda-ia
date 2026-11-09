@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgendaIA | Painel Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Menu Lateral Funcional -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Agenda<span>IA</span></h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active" data-target="agendamentos">
+                    <i class="bi bi-calendar-check"></i> Agendamentos
+                </a>
+                <a href="#" class="nav-link" data-target="clientes">
+                    <i class="bi bi-people"></i> Clientes
+                </a>
+                <a href="#" class="nav-link" data-target="ia">
+                    <i class="bi bi-robot"></i> Assistente IA
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1 id="pageTitle">Novo Agendamento Inteligente</h1>
+                <span class="badge">Gemini 3.8-Flash</span>
+            </header>
+
+            <!-- TELA 1: AGENDAMENTOS (Smart Autofill) -->
+            <section id="view-agendamentos" class="view-section">
+                <div class="content-grid">
+                    <div class="card form-card">
+                        <h2>Descreva o atendimento</h2>
+                        <p class="subtitle">Digite em linguagem natural para o Smart Autofill preencher e salvar.</p>
+                        
+                        <form id="agendamentoForm">
+                            <div class="input-group">
+                                <label for="clienteId">ID do Cliente</label>
+                                <input type="number" id="clienteId" value="1" required placeholder="Ex: 1">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="textoIA">O que deseja agendar?</label>
+                                <textarea id="textoIA" rows="5" placeholder="Ex: Quero marcar uma escova progressiva amanhã às 14h por 150 reais" required></textarea>
+                            </div>
+
+                            <button type="submit" id="btnEnviar">
+                                <i class="bi bi-magic"></i> Processar e Salvar com IA
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="card result-card">
+                        <h2>Status da Operação</h2>
+                        <div id="loading" class="loading-state hidden">
+                            <div class="spinner"></div>
+                            <p>O Gemini está analisando o texto...</p>
+                        </div>
+                        <div id="resultado" class="empty-state">
+                            <p><i class="bi bi-info-circle"></i> Preencha o formulário ao lado para testar o Smart Autofill.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELA 2: CLIENTES -->
+            <section id="view-clientes" class="view-section hidden">
+                <div class="card">
+                    <h2><i class="bi bi-people-fill"></i> Gestão de Clientes</h2>
+                    <p class="subtitle">Lista de clientes cadastrados no banco de dados para vincular aos agendamentos.</p>
+                    
+                    <div class="empty-state">
+                        <p><i class="bi bi-tools"></i> Módulo de clientes em expansão. Utilize o ID 1 para testes rápidos de agendamento!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELA 3: ASSISTENTE IA -->
+            <section id="view-ia" class="view-section hidden">
+                <div class="card">
+                    <h2><i class="bi bi-cpu-fill"></i> Status da Inteligência Artificial</h2>
+                    <p class="subtitle">Configurações e métricas do modelo conectado ao backend.</p>
+                    
+                    <div class="success-box" style="margin-top: 15px;">
+                        <h3><i class="bi bi-check-circle-fill"></i> Modelo Ativo: <code>gemini-3.8-flash</code></h3>
+                        <p style="margin-top: 8px; font-size: 0.9rem;">SDK Oficial do Google GenAI operando com extração estruturada de JSON para automação de tarefas.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
