@@ -2,8 +2,7 @@
 
 #  AgendaIA | Sistema Inteligente de Agendamentos
 
-  <img src="./docs/demo.gif" alt="Demonstração do AgendaIA com Smart Autofill" width="100%">
-</div>
+
 
 <div align="center">
 
@@ -12,6 +11,11 @@
 [![MySQL](https://img.shields.io/badge/Database-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
+</div>
+
+---
+
+  <img src="./docs/demo.gif" alt="Demonstração do AgendaIA com Smart Autofill" width="100%">
 </div>
 
 ---
