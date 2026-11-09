@@ -13,18 +13,14 @@ navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Remove active de todos os links e adiciona no clicado
         navLinks.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
 
-        // Oculta todas as seções de tela
         viewSections.forEach(sec => sec.classList.add('hidden'));
 
-        // Mostra somente a seção alvo
         const target = link.getAttribute('data-target');
         document.getElementById(`view-${target}`).classList.remove('hidden');
 
-        // Atualiza o título do topo da página
         pageTitle.textContent = pageTitles[target];
     });
 });
@@ -39,7 +35,7 @@ if (form) {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const cliente_id = document.getElementById('clienteId').value;
+        // Pega apenas o texto livre digitado pelo usuário
         const texto = document.getElementById('textoIA').value;
 
         resultado.classList.add('hidden');
@@ -52,7 +48,7 @@ if (form) {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ cliente_id: Number(cliente_id), texto })
+                body: JSON.stringify({ texto })
             });
 
             const data = await response.json();
@@ -71,8 +67,8 @@ if (form) {
                         <span>#${data.id}</span>
                     </div>
                     <div class="result-item">
-                        <span><strong>Cliente ID:</strong></span>
-                        <span>${data.cliente_id}</span>
+                        <span><strong>Cliente (IA):</strong></span>
+                        <span>${extraidos.cliente_nome}</span>
                     </div>
                     <div class="result-item">
                         <span><strong>Serviço:</strong></span>
@@ -90,7 +86,6 @@ if (form) {
             `;
             
             form.reset();
-            document.getElementById('clienteId').value = cliente_id;
 
         } catch (error) {
             resultado.className = '';
